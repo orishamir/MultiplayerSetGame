@@ -4,12 +4,14 @@ from random import randint
 from Game import is_set, return_sets, cards
 from time import sleep
 
+PORT = 1337
+
 board = [cards.pop(randint(0, len(cards)-1)) for _ in range(4*3)]
 while not list(return_sets(board)):
     board.append(cards.pop(randint(0, len(cards) - 1)))
 
 server = socket.socket()
-server.bind(("0.0.0.0", 5552))
+server.bind(("0.0.0.0", PORT))
 server.listen(5)
 
 def handle_response(sock: socket.socket, data):
