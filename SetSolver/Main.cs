@@ -537,10 +537,10 @@ public static class ConnectForm
             StartPosition = FormStartPosition.CenterScreen
         };
         Label ipLabel = new Label() { Left = 50, Top = 20, Text = "Ip:"};
-        TextBox ipBox = new TextBox() { Left = 50, Top = 40, Width = 200, Text= "ori.ddns.net", Enabled=false};
+        TextBox ipBox = new TextBox() { Left = 50, Top = 40, Width = 200, Text= "0.0.0.0", Enabled=true};
         
         Label portLabel = new Label() { Left = 50, Top = 70, Text = "Port:" };
-        TextBox portBox = new TextBox() { Left = 50, Top = 90, Width = 200 , Text="5552", Enabled=false};
+        TextBox portBox = new TextBox() { Left = 50, Top = 90, Width = 200 , Text="1337", Enabled=true};
 
         Label nameLabel = new Label() { Left = 50, Top = 120, Text = "Name:" };
         TextBox nameBox = new TextBox() { Left = 50, Top = 145, Width = 200, MaxLength=13};
@@ -557,6 +557,6 @@ public static class ConnectForm
         
         prompt.AcceptButton = confirmation;
 
-        return prompt.ShowDialog() == DialogResult.OK ? ipBox.Text+":"+portBox.Text+":"+nameBox.Text : "ori.ddns.net:5552:player";
+        return prompt.ShowDialog() == DialogResult.OK ? ipBox.Text+":"+portBox.Text+":"+nameBox.Text : "";
     }
 }
